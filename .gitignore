@@ -1,0 +1,11 @@
+# Kubeconfigs — contiennent des certificats d'accès aux clusters
+*.kubeconfig
+kubeconfig
+.kube/
+
+# Secrets en clair
+*secret*.yaml
+!*sealed*.yaml
+
+# Divers
+*.tmp
