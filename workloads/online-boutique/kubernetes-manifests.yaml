@@ -533,7 +533,8 @@ spec:
             memory: 200Mi
       volumes:
       - name: redis-data
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: redis-data
 ---
 apiVersion: v1
 kind: Service
@@ -978,3 +979,15 @@ kind: ServiceAccount
 metadata:
   name: adservice
 # [END gke_release_kubernetes_manifests_microservices_demo]
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-data
+  namespace: boutique
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
