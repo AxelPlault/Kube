@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-witness
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-witness
+  namespace: test-witness
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-witness
+  template:
+    metadata:
+      labels:
+        app: nginx-witness
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:stable
+          ports:
+            - containerPort: 80

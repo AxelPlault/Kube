@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-witness
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/OtosanA/Kube.git
+    targetRevision: main
+    path: workloads/test-witness
+  destination:
+    server: https://172.18.0.3:6443    # le cluster production
+    namespace: test-witness
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
