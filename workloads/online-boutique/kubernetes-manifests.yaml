@@ -488,6 +488,8 @@ metadata:
   labels:
     app: redis-cart
 spec:
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: redis-cart
