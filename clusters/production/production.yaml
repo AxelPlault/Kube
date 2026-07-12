@@ -368,6 +368,8 @@ apiVersion: cluster.x-k8s.io/v1beta2
 kind: Cluster
 metadata:
   name: production
+  labels:
+    cni: calico
   namespace: default
 spec:
   clusterNetwork:
