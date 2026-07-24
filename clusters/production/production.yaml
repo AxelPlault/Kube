@@ -384,7 +384,7 @@ spec:
     classRef:
       name: quick-start
     controlPlane:
-      replicas: 1
+      replicas: 3
     variables:
     - name: imageRepository
       value: ""
